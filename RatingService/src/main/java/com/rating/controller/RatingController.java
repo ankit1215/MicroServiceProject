@@ -16,7 +16,7 @@ public class RatingController {
     @Autowired
     private RatingService ratingService;
 
-    //create
+    //create rating
     @PostMapping("/create")
     public ResponseEntity<Rating> create(@RequestBody Rating rating){
         return ResponseEntity.status(HttpStatus.CREATED).body(ratingService.create(rating));
@@ -39,6 +39,21 @@ public class RatingController {
     public ResponseEntity<List<Rating>> getAllRatingByHotelId(@PathVariable String hotelId){
         return ResponseEntity.ok(ratingService.getRatingByHotelId(hotelId));
     }
+
+    //update rating
+    @PutMapping("/update/{ratingId}")
+    public ResponseEntity<Rating> updateRating(@PathVariable String ratingId, @RequestBody Rating rating){
+        Rating updateRating = ratingService.updateRating(ratingId, rating);
+        return ResponseEntity.ok(updateRating);
+    }
+
+    //delete Rating
+    @DeleteMapping("delete/{ratingId}")
+    public ResponseEntity<String> deleteRating(@PathVariable String ratingId){
+        ratingService.deleteRating(ratingId);
+        return ResponseEntity.ok("Rating Deleted Successfully with ID: " + ratingId);
+    }
+
 
 
 }
