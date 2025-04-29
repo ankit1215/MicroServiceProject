@@ -12,17 +12,17 @@ spring:
         - id: USERSERVICE
           uri: lb://USERSERVICE
           predicates:
-            - Path=/api/users/getAllUsers/**
+            - Path=/api/users/getAllUsers/**, /api/users/create/**, /api/users/{userId}/**
 
         - id: HOTELSERVICE
           uri: lb://HOTELSERVICE
           predicates:
-            - Path=/api/hotels/getAllHotels/**
+            - Path=/api/hotels/getAllHotels/**, /api/hotels/create/**, /api/hotels/{hotelId}/**
 
         - id: RATINGSERVICE
           uri: lb://RATINGSERVICE
           predicates:
-            - Path=/api/rating/getAllRating/**
+            - Path=/api/rating/getAllRating/**, /api/rating/create/**, /api/rating/users/{userId}/**, /api/rating/hotel/{hotelId}/**, /api/rating/update/{ratingId}/**, /api/rating/delete/{ratingId}/**
 
 
 

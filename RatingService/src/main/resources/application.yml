@@ -15,15 +15,18 @@ spring:
       ddl-auto: update
     show-sql: true
 
+    config:
+      import: optional:configserver:http://localhost:8085
 
 
-eureka:
-  instance:
-    prefer-ip-address: true  # This tells Eureka to use the IP address of the instance rather than the hostname when registering.
-  client:
-    fetch-registry: true  # This tells the client to fetch the service registry from Eureka (i.e., get the list of services).
-    register-with-eureka: true  # This tells the client to register itself with Eureka (i.e., to be discoverable by other services).
-    service-url:
-      defaultZone: http://localhost:8761/eureka  # This is the URL where Eureka Server is running. It should be the Eureka server's base URL.
 
-
+#eureka:
+#  instance:
+#    prefer-ip-address: true  # This tells Eureka to use the IP address of the instance rather than the hostname when registering.
+#  client:
+#    fetch-registry: true  # This tells the client to fetch the service registry from Eureka (i.e., get the list of services).
+#    register-with-eureka: true  # This tells the client to register itself with Eureka (i.e., to be discoverable by other services).
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka  # This is the URL where Eureka Server is running. It should be the Eureka server's base URL.
+#
+#
