@@ -25,8 +25,6 @@ spring:
             - Path=/api/rating/getAllRating/**, /api/rating/create/**, /api/rating/users/{userId}/**, /api/rating/hotel/{hotelId}/**, /api/rating/update/{ratingId}/**, /api/rating/delete/{ratingId}/**
 
 
-
-
 eureka:
   instance:
     prefer-ip-address: true
@@ -35,3 +33,12 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+# okta configuration for api gateways
+okta:
+  oauth2:
+    issuer: https://dev-52077336.okta.com/oauth2/default
+    audience: api://default
+    client-id: 0oaoq27p59OyUXZ085d7
+    client-secret: q1uaFp1bhG2FlZFS98XGgak6l-yLP0FXijtIQj4Y_pgeQZhkO8a5gRw8XWVMybRG
+    scopes: openid, profile, email, offline_access
